@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">   
+    <div class="box">
+    <h1>Stock Data Visualizer</h1>
+
+    <form method="POST" action="{{ url_for('get_stock_data') }}">
+        <label for="SymbolChoice">Choose Symbol:</label>
+        <select id="SymbolChoice" name="SymbolChoice">
+            {% for sym in symbolsList %}
+            <option value="{{sym}}">{{sym}}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <label for="ChartChoice">Choose Chart Type:</label>
+        <select id="ChartChoice" name="ChartChoice">
+            <option value="bar">Bar</option>
+            <option value="line">Line</option>
+        </select>
+        <br>
+
+        <label for="TSChoice">Choose Time Series:</label>
+        <select id="TSChoice" name="TSChoice">
+            <option value="TIME_SERIES_INTRADAY">Intraday</option>
+            <option value="TIME_SERIES_DAILY">Daily</option>
+            <option value="TIME_SERIES_WEEKLY">Weekly</option>
+            <option value="TIME_SERIES_MONTHLY">Monthly</option>
+        </select>
+        <br>
+
+        <label for="date-picker1">Choose 1st date:</label>
+        <input type="date" id="date-picker1" name="date-picker1">
+        <br>
+
+        <label for="date-picker2">Choose 2nd date:</label>
+        <input type="date" id="date-picker2" name="date-picker2">
+        <hr>
+
+        <button type="submit">Submit choice</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

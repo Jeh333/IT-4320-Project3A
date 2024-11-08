@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %} {% endblock %} SDV APP</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{url_for('static', filename = 'style.css')}}">
+    </head>
+    <body>
+        <nav class="navbar">
+            <a href= "{{ url_for('index') }}">HOME</a>
+        </nav>
+
+        <div class = "content">
+            {% for message in get_flashed_messages() %}
+                <div class = "alert">{{message}}</div>
+            {% endfor %}
+        </div>
+
+        {% block content %} {% endblock %}
+        <script src="" async defer></script>
+    </body>
+</html>
